@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Example with Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search-result.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_table_dataframe.css') }}">
+</head>
+<body>
+    <h1>Search Example with Flask</h1>
+
+    <form method="POST" action="/searchData">
+        <input type="text" name="searchInput"
+               placeholder="Enter your search term">
+        <button type="submit">Search</button>
+    </form>
+    <p>
+        {% if search_text %}
+        You searched for: {{ search_text }}
+        <div class="menu">
+        <ul>
+            {% for row in table %}
+                <li>{{ row[0]}} -
+                    {{ row[1]}} -
+                    {{ row[2]}} -
+                    {{ row[4]}}
+                    <form action="/cart/add" method="POST">
+                        <input type="hidden" name="product_id" value="{{ row[0] }}">
+                        <input type="number" name="quantity" value="1" min="1">
+                        <button type="submit">Add to cart</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    </p>
+</body>
+</html>
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Example</title>
+</head>
+<body>
+    <h1>Search Example</h1>
+    <input type="text" id="searchInput" placeholder="Enter your search term">
+    <button onclick="showSearchText()">Search</button>
+    <p id="searchResult"></p>
+    <script>
+        function showSearchText() {
+            // Get the input element
+            var inputElement = document.getElementById("searchInput");
+            // Get the value of the input
+            var searchText = inputElement.value;
+            // Get the element where we want to display the search text
+            var resultElement = document.getElementById("searchResult");
+            // Display the search text
+            resultElement.innerHTML = "You searched for: " + searchText;
+        }
+    </script>
+</body>
+</html>

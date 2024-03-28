@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your shopping cart</title>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='style_cart.css') }}">
+</head>
+<body>
+    <h1>Your shopping cart</h1>
+    <!--Hiện dữ liệu nếu searchtext không rỗng-->
+    <table class="cart">
+        <tr>
+            <th>ID</th> <th>Name</th> <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for product in carts %}
+        <tr>
+            <td>{{ product['id'] }}</td>
+            <td>{{ product['name'] }}</td>
+            <td>{{ product['price'] }}</td>
+            <td>{{ product['quantity'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
